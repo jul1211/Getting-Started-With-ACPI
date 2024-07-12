@@ -8,12 +8,8 @@
  */
 DefinitionBlock ("", "SSDT", 2, "DRTNIA", "SsdtEC", 0x00001000)
 {
-    External (_SB_.PCI0.LPC_.EC__, DeviceObj)
-    External (_SB_.PCI0.LPCB.EC__, DeviceObj)
-
-    If ((!CondRefOf (\_SB.PCI0.LPCB.EC) && !CondRefOf (\_SB.PCI0.LPC.EC)))
-    {
-        Scope (\_SB)
+    External (_SB.PCI0.LPCB.H, DeviceObj)
+        Scope (\_SB.PCI0.LPCB.H)
         {
             Device (EC)
             {
@@ -31,6 +27,5 @@ DefinitionBlock ("", "SSDT", 2, "DRTNIA", "SsdtEC", 0x00001000)
                 }
             }
         }
-    }
 }
 
